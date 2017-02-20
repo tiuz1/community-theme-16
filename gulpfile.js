@@ -14,6 +14,7 @@ var gulpif      = require('gulp-if');
 var rename      = require('gulp-rename');
 /** @var {{ themeName, themeModulePrefix, sourcemaps }} options **/
 var options     = require('./package.json').options;
+var browserSync = require('browser-sync').create();
 
 var createFolders = [
   './themes/' + options.themeName + '/cache/',
@@ -99,7 +100,14 @@ gulp.task('compile-module-css', function() {
 });
 
 gulp.task('watch-sass', function() {
-  gulp.watch('./themes/' + options.themeName + '/sass/**/*.scss', ['compile-css']);
+      browserSync.init({
+          open: 'external',
+          host: 'fc.localhost',
+          proxy: 'fc.localhost', // or project.dev/app/
+          port: 3000
+    });
+	gulp.watch('./themes/' + options.themeName + '/sass/**/*.scss', ['compile-css']);
+	gulp.watch('./themes/' + options.themeName + '/css/**/*.css').on('change', browserSync.reload);
 });
 
 gulp.task('clean-up', function() {
