@@ -1,5 +1,5 @@
 {
-  "name": "community-theme-16",
+  "name": "fancy-cosmetics",
   "private": true,
   "devDependencies": {
     "browser-sync": "^2.18.8",
@@ -19,7 +19,7 @@
     "run-sequence": "^1.1.5"
   },
   "options": {
-    "themeName": "community-theme-16",
+    "themeName": "fancy-cosmetics",
     "themeModulePrefix": "ct",
     "sourcemaps": false
   },
