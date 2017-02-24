@@ -103,7 +103,7 @@ gulp.task('watch-sass', function() {
       browserSync.init({
           open: 'external',
           host: 'fc.localhost',
-          proxy: 'fc.localhost', // or project.dev/app/
+          proxy: 'fc.localhost',
           port: 3000
     });
 	gulp.watch('./themes/' + options.themeName + '/sass/**/*.scss', ['compile-css']);
