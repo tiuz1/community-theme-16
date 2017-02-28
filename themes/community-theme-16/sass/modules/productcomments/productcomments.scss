@@ -61,10 +61,16 @@ $product-comment-border: $ps-border-color;
 //
 
 #product_comments_block_extra {
-  padding: 10px;
   margin: 0 0 15px;
-  background: $panel-comments-info-bg;
-  border: 1px solid $panel-comments-info-border;
+
+  ul {
+
+    li {
+      @media(max-width:991px) {
+        display: block;
+      }
+    }
+  }
 }
 
 .comments_advices {
