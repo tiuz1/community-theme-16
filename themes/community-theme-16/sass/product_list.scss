@@ -48,6 +48,15 @@ $product-grid-item-hover-bg: #f6f6f6;
   .product-container:hover {
     .show-if-product-grid-hover {
       display: block;
+
+      span.aeuc_from_label, 
+      span.aeuc_before_label, 
+      span.aeuc_tax_label, 
+      div.aeuc_shipping_label, 
+      div.aeuc_weight_label, 
+      div.aeuc_delivery_label {
+        color: white;
+      }
     }
   }
 }
@@ -140,14 +149,10 @@ $product-grid-item-hover-bg: #f6f6f6;
 .product_list.grid {
   .product-container {
     margin-bottom: 45px;
+
     &:hover {
       background-color: $product-grid-item-hover-bg;
-      border: 1px solid #ccc;
-      .product-image-container {
-        border-left: none;
-        border-right: none;
-        border-top: none;
-      }
+
       .button-container {
         display: block;
       }
@@ -182,7 +187,6 @@ $product-grid-item-hover-bg: #f6f6f6;
     left: 0;
     width: 100%;
     z-index: 1;
-    border: 1px solid #ccc;
     background-color: $product-grid-item-hover-bg;
     margin-left: -1px;
     @include box-sizing(content-box);
