@@ -92,7 +92,7 @@
     </div>
   </nav>
 
-  <div id="header-blocks" class="container">
+  <div id="header-blocks" class="container-fluid">
     <div class="row">
       <div id="shop-logo" class="col-sm-4">
         <a href="{if isset($force_ssl) && $force_ssl}{$base_dir_ssl}{else}{$base_dir}{/if}" title="{$shop_name|escape:'html':'UTF-8'}">
@@ -105,7 +105,7 @@
 
 </header>
 
-<div id="columns" class="container">
+<div id="columns" class="container-fluid">
   {if $page_name !='index' && $page_name !='pagenotfound'}
     {include file="$tpl_dir./breadcrumb.tpl"}
   {/if}
@@ -113,10 +113,10 @@
   {if !empty($smarty.capture.displayTopColumn)}
     <div id="top_column" class="row">{$smarty.capture.displayTopColumn}</div>
   {/if}
-  <div class="row">
-    {if isset($left_column_size) && !empty($left_column_size)}
-      <aside id="left_column" class="col-xs-12 col-sm-{$left_column_size|intval}">{$HOOK_LEFT_COLUMN}</aside>
-    {/if}
-    {if isset($left_column_size) && isset($right_column_size)}{assign var='cols' value=(12 - $left_column_size - $right_column_size)}{else}{assign var='cols' value=12}{/if}
-    <main id="center_column" class="col-xs-12 col-sm-{$cols|intval}">
+    <div class="row">
+      {if isset($left_column_size) && !empty($left_column_size)}
+        <aside id="left_column" class="col-xs-12 col-sm-{$left_column_size|intval}">{$HOOK_LEFT_COLUMN}</aside>
+      {/if}
+      {if isset($left_column_size) && isset($right_column_size)}{assign var='cols' value=(12 - $left_column_size - $right_column_size)}{else}{assign var='cols' value=12}{/if}
+      <main id="center_column" class="col-xs-12 col-sm-{$cols|intval}">
 {/if}
