@@ -8,6 +8,7 @@
 !/modules/
 /modules/*
 !/modules/ct*/
+!/modules/pk_flexmenu/
 
 !/CHANGELOG.md
 !/Config.xml
