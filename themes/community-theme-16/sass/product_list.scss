@@ -24,9 +24,18 @@ $product-grid-item-hover-bg: #f6f6f6;
   .hide-if-product-list {
     display: none;
   }
-  .product-container:hover {
-    .show-if-product-list-hover {
-      display: block;
+
+  .product-container {
+    text-align: left;
+
+    &:hover {
+      .show-if-product-list-hover {
+        display: block;
+      }
+    }
+
+    .product-actions-container {
+      text-align: center;
     }
   }
 }

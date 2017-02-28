@@ -4,20 +4,19 @@
 
 
 .breadcrumb {
-  padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal;
+  padding: 0 $breadcrumb-padding-horizontal $breadcrumb-padding-vertical $breadcrumb-padding-horizontal;
   margin-bottom: $line-height-computed;
   list-style: none;
-  background-color: $breadcrumb-bg;
-  border-radius: $border-radius-base;
+  border-bottom: 1px solid $breadcrumb-bg;
 
   > li {
-    display: inline-block;
+    display: inline;
+    position: relative;
 
     + li:before {
       // [converter] Workaround for https://github.com/sass/libsass/issues/1115
       $nbsp: "\00a0";
-      content: "#{$breadcrumb-separator}#{$nbsp}"; // Unicode space added since inline-block means non-collapsing white-space
-      padding: 0 5px;
+      content: "#{$nbsp}#{$breadcrumb-separator}#{$nbsp}"; // Unicode space added since inline-block means non-collapsing white-space
       color: $breadcrumb-color;
     }
   }
