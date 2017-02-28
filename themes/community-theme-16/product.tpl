@@ -32,7 +32,7 @@
         <div class="alert alert-warning">{$confirmation}</div>
       {/if}
 
-      <div class="pb-left-column col-xs-12 col-sm-4 col-md-5">
+      <div class="pb-left-column col-xs-12 col-sm-4 col-md-3">
 
         <div id="image-block" class="thumbnail clearfix">
 
@@ -100,13 +100,26 @@
 
       </div>
 
-      <div class="pb-center-column col-xs-12 col-sm-4">
+      <div class="pb-center-column col-xs-12 col-sm-4 col-md-6">
 
         <h1 itemprop="name">{$product->name|escape:'html':'UTF-8'}</h1>
         <p id="product_reference"{if empty($product->reference) || !$product->reference} style="display: none;"{/if}>
           <b>{l s='Reference:'}</b>
           <span class="editable" itemprop="sku"{if !empty($product->reference) && $product->reference} content="{$product->reference}"{/if}>{if !isset($groups)}{$product->reference|escape:'html':'UTF-8'}{/if}</span>
         </p>
+
+        {if $product->id_manufacturer > 0}
+          <p itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+            <b>{l s='Manufacturer:'}</b>
+            <a itemprop="url" href="{$link->getManufacturerLink($product->id_manufacturer)}" title="{$product->manufacturer_name}">
+              <span itemprop="name">{$product->manufacturer_name}</span>
+            </a>
+          </p>
+        {/if}
+
+        <div class="product-rating">
+          {if isset($HOOK_EXTRA_RIGHT) && $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
+        </div>
 
         {if !$product->is_virtual && $product->condition}
           <p id="product_condition">
@@ -124,14 +137,7 @@
           </p>
         {/if}
 
-        {if $product->id_manufacturer > 0}
-          <p itemprop="brand" itemscope itemtype="https://schema.org/Brand">
-            <b>{l s='Manufacturer:'}</b>
-            <a itemprop="url" href="{$link->getManufacturerLink($product->id_manufacturer)}" title="{$product->manufacturer_name}">
-              <span itemprop="name">{$product->manufacturer_name}</span>
-            </a>
-          </p>
-        {/if}
+
 
         {if $product->description_short}
           <div id="short_description_block">
@@ -170,8 +176,6 @@
         <div id="oosHook"{if $product->quantity > 0} style="display: none;"{/if}>
           {$HOOK_PRODUCT_OOS}
         </div>
-
-        {if isset($HOOK_EXTRA_RIGHT) && $HOOK_EXTRA_RIGHT}{$HOOK_EXTRA_RIGHT}{/if}
 
         {if !$content_only}
           <ul id="usefull_link_block" class="list-unstyled hidden-print">
